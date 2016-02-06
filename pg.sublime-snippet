@@ -1,0 +1,38 @@
+<snippet>
+	<content><![CDATA[
+%---------------------------------------------------------------------
+%	pg
+%---------------------------------------------------------------------
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-0.5,-1) rectangle (5.5,3.5);
+% defining coordinates
+\coordinate (1)   at (0,0);
+\coordinate (2)   at (0,3);
+\coordinate (3)   at (4,3);
+\coordinate (4)   at (4,0);
+\coordinate (1_2) at ($(1)!0.5!(2)$);
+\coordinate (2_3) at ($(2)!0.5!(3)$);
+\coordinate (3_4) at ($(3)!0.5!(4)$);
+\coordinate (4_1) at ($(4)!0.5!(1)$);
+\coordinate (1_3) at ($(1)!0.5!(3)$);
+% draw the 2D net
+\fill[color=white] (1) -- (2) -- (3) -- (4) -- cycle;
+\draw [line width=0.5pt] (1)-- (2);
+\draw [line width=0.5pt] (3)-- (4);
+\draw [line width=1.2pt, dash pattern=on 4pt off 4pt, color = myOrange] (2)-- (3);
+\draw [line width=1.2pt, dash pattern=on 4pt off 4pt, color = myOrange] (1)-- (4);
+\draw [line width=1.2pt, dash pattern=on 4pt off 4pt, color = myOrange] (1_2)-- (3_4);
+% draw plane group notaton
+\draw[color=black] (2,-0.5) node {$pm$};
+\end{tikzpicture}
+\end{figure}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>pg</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.tex.latex</scope>
+</snippet>

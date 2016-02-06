@@ -1,0 +1,54 @@
+<snippet>
+	<content><![CDATA[
+
+%---------------------------------------------------------------------
+%	p3m1
+%---------------------------------------------------------------------
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-0.5,-1) rectangle (5.5,3.5);
+% defining coordinates
+\coordinate (1)   at (0,0);
+\coordinate (2)   at ({sqrt(3)},3);
+\coordinate (3)   at ({3*sqrt(3)},3);
+\coordinate (4)   at ({2*sqrt(3)},0);
+\coordinate (1_2) at ($(1)!0.5!(2)$);
+\coordinate (2_3) at ($(2)!0.5!(3)$);
+\coordinate (3_4) at ($(3)!0.5!(4)$);
+\coordinate (4_1) at ($(4)!0.5!(1)$);
+\coordinate (1_3) at ($(1)!0.5!(3)$);
+\coordinate (c_1) at ($($(1)!0.5!(4)$)!1/3!(2)$);
+\coordinate (c_2) at ($($(2)!0.5!(3)$)!1/3!(4)$);
+% draw the 2D net
+\fill[color=white] (1) -- (2) -- (3) -- (4) -- cycle;
+\draw [line width=0.5pt] (2)-- (3)-- (4)-- (1)-- cycle; % solid
+\draw [line width=1.2pt, color=myBlue] (1)-- (3); % mirror
+\draw [line width=1.2pt, color=myBlue] (2)-- (4_1);
+\draw [line width=1.2pt, color=myBlue] (4)-- (2_3);
+\draw [line width=1.2pt, color=myBlue] (4)-- (1_2);
+\draw [line width=1.2pt, color=myBlue] (2)-- (3_4);
+\draw [line width=1.2pt, color=myBlue] (2)-- (3_4);
+\draw [line width=1.2pt, dash pattern=on 4pt off 4pt, color = myOrange] ($(1)!(1_2)!(4)$)-- (1_2)-- (2_3)-- ($(3)!(2_3)!(4)$);  % dash
+\draw [line width=1.2pt, dash pattern=on 4pt off 4pt, color = myOrange] ($(1)!(4_1)!(2)$)-- (4_1)-- (3_4)-- ($(2)!(3_4)!(3)$);
+\draw [line width=1.2pt, dash pattern=on 4pt off 4pt, color = myOrange] ($(2)!(1_3)!(3)$)-- ($(1)!(1_3)!(4)$);
+\draw [line width=1.2pt, dash pattern=on 4pt off 4pt, color = myOrange] ($(1)!(1_3)!(2)$)-- ($(3)!(1_3)!(4)$);
+% draw symmetry elements
+\draw[color=black] (1)   node {\large \cry{3}};
+\draw[color=black] (2)   node {\large \cry{3}};
+\draw[color=black] (3)   node {\large \cry{3}};
+\draw[color=black] (4)   node {\large \cry{3}};
+\draw[color=black] (c_1) node {\large \cry{3}};
+\draw[color=black] (c_2) node {\large \cry{3}};
+% draw plane group notaton
+\draw[color=black] (2.,-0.5) node {$p3m1$};
+\end{tikzpicture}
+\end{figure}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>p3m1</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<scope>text.tex.latex</scope>
+</snippet>
